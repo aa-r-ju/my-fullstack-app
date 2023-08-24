@@ -26,11 +26,17 @@ useEffect(() => {
     const noteObject = {
       content: newNote,
       important: Math.random() < 0.5,
-      id: notes.length + 1,
     }
-  
-    setNotes(notes.concat(noteObject))
+
+   let postPromise = axios.post("http://localhost:3001/notes", noteObject)
+   postPromise.then((result) => {
+    console.log(result.data)
+    setNotes(notes.concat(result.data))
     setNewNote('')
+
+
+   })
+      
     }
 
   const handleNoteChange = (event) => {
