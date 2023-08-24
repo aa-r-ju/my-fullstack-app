@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState ,useEffect} from 'react'
 
 import Note from "./Note"
 
@@ -7,7 +7,9 @@ const App = (props) => {
   const [newNote, setNewNote] = useState('')
   const [showAll, setShowAll] = useState(true)
  
-
+useEffect(() => {
+  console.log("Hello");
+},[])
 
   const addNote = (event) => {
     event.preventDefault()
@@ -22,7 +24,6 @@ const App = (props) => {
     }
 
   const handleNoteChange = (event) => {
-    console.log(event.target.value)
     setNewNote(event.target.value)
   }
 
